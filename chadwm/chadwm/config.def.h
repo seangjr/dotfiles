@@ -29,14 +29,14 @@ static const int horizpadtabo       = 15;
 static const int scalepreview       = 4;
 static       int tag_preview        = 0;        /* 1 means enable, 0 is off */
 
-static const char *fonts[]          = { "MesloLGS Nerd Font:style:medium:size=10",
+static const char *fonts[]          = { "FiraCode Nerd Font:style:medium:size=11",
                                         "Material Design Icons-Regular:size=10",
                                       };
-static const char dmenufont[]       = "monospace:size=10";
+static const char dmenufont[]       = "FiraCode Nerd Font:style:medium:size=10";
 static const int colorfultag        = 1;  /* 0 means use SchemeSel for selected non vacant tag */
 
 // theme
-#include "themes/nord.h"
+#include "themes/gruvchad.h"
 
 static const char *colors[][3]      = {
     /*               fg         bg         border   */
