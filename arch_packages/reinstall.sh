@@ -2,6 +2,6 @@
 
 for pkgName in $(cat packages.txt)
 do
-  sudo pacman -S --force --noconfirm $pkgName
+  sudo pacman -S --noconfirm $pkgName
 done
 echo "Reinstalled all packages!"
