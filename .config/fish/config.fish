@@ -1,12 +1,15 @@
 # set fish prompt
 set fish_greeting ""
 
+# starship init
+starship init fish | source
+
 # set nvim as default editor
 export EDITOR=nvim
 set -gx EDITOR nvim
 
 # theme
-set -gx TERM screen-256color
+set -gx TERM xterm-256color
 
 set -g theme_color_scheme terminal-dark
 set -g fish_prompt_pwd_dir_length 1

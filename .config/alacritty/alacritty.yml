@@ -23,14 +23,15 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
-  #TERM: Alacritty
+#
+# This value is used to set the `$TERM` environment variable for
+# each instance of Alacritty. If it is not present, alacritty will
+# check the local terminfo database and use `alacritty` if it is
+# available, otherwise `xterm-256color` is used.
+#TERM: Alacritty
+env:
+  TERM: xterm-256color
+
 shell:
   program: /usr/bin/fish
   args:
@@ -81,7 +82,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.9
+  opacity: 0.95
 
   # Startup Mode (changes require restart)
   #
@@ -101,10 +102,10 @@ window:
 
   # Window class (Linux/BSD only):
   #class:
-    # Application instance name
-    #instance: Alacritty
-    # General application class
-    #general: Alacritty
+  # Application instance name
+  #instance: Alacritty
+  # General application class
+  #general: Alacritty
 
   # GTK theme variant (Linux/BSD only)
   #
@@ -113,12 +114,12 @@ window:
   #gtk_theme_variant: None
 
 #scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
-  #history: 10000
+# Maximum number of lines in the scrollback buffer.
+# Specifying '0' will disable scrolling.
+#history: 10000
 
-  # Scrolling distance multiplier.
-  #multiplier: 3
+# Scrolling distance multiplier.
+#multiplier: 3
 
 # Font configuration
 font:
@@ -130,7 +131,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: MesloLGS Nerd Font
+    family: JetBrainsMono Nerd Font
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -141,7 +142,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: MesloLGS Nerd Font
+    family: JetBrainsMono Nerd Font 
 
     # The `style` can be specified to pick a specific face.
     #style: Bold
@@ -152,25 +153,24 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-   
-    family: MesloLGS Nerd Font
 
+    family: JetBrainsMono Nerd Font 
     # The `style` can be specified to pick a specific face.
     #style: Italic
 
   # Bold italic font face
   #bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
+  # Font family
+  #
+  # If the bold italic family is not specified, it will fall back to the
+  # value specified for the normal font.
+  #family: monospace
 
-    # The `style` can be specified to pick a specific face.
-    #style: Bold Italic
+  # The `style` can be specified to pick a specific face.
+  #style: Bold Italic
 
   # Point size
-  size: 11.0
+  size: 11.5
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -190,58 +190,49 @@ font:
   #
   # Thin strokes are suitable for retina displays, but for non-retina screens
   # it is recommended to set `use_thin_strokes` to `false`.
-  use_thin_strokes: true
+  # use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors:
+  true
+  # Catppuccin!
 colors:
+  # Default colors
   primary:
-    background: "0x2c2e34"
-    foreground: "0xe2e2e3"
-
+    background: "0x1E1D2F"
+    foreground: "0xD9E0EE"
+  cursor:
+    text: "0x1E1D2F"
+    cursor: "0xF5E0DC"
   normal:
-    black: "0x181819"
-    red: "0xfc5d7c"
-    green: "0x9ed072"
-    yellow: "0xe7c664"
-    blue: "0x76cce0"
-    magenta: "0xb39df3"
-    cyan: "0xf39660"
-    white: "0xe2e2e3"
-
+    black: "0x1C1C1C"
+    red: "0xF28FAD"
+    green: "0xABE9B3"
+    yellow: "0xFAE3B0"
+    blue: "0x96CDFB"
+    magenta: "0xF5C2E7"
+    cyan: "0x89DCEB"
+    white: "0xD9E0EE"
+  # Bright colors
   bright:
-    black: "0x7f8490"
-    red: "0xfc5d7c"
-    green: "0x9ed072"
-    yellow: "0xe7c664"
-    blue: "0x76cce0"
-    magenta: "0xb39df3"
-    cyan: "0xf39660"
-    white: "0xe2e2e3"
+    black: "0x988BA2"
+    red: "0xF28FAD"
+    green: "0xABE9B3"
+    yellow: "0xFAE3B0"
+    blue: "0x96CDFB"
+    magenta: "0xF5C2E7"
+    cyan: "0x89DCEB"
+    white: "0xD9E0EE"
+
+  indexed_colors:
+    - { index: 16, color: "0xF8BD96" }
+    - { index: 17, color: "0xF5E0DC" }
+  # Colors the cursor will use if `custom_cursor_colors` is true
 
 mouse:
   hide_when_typing: false
-selection:
-  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
-
-  # When set to `true`, selected text will be copied to the primary clipboard.
-  save_to_clipboard: false
-
-cursor:
-  # Cursor style
-  #
-  # Values for `style`:
-  #   - ▇ Block
-  #   - _ Underline
-  #   - | Beam
-  style: beam
-  # If this is `true`, the cursor will be rendered as a hollow box when the
-  # window is not focused.
-  unfocused_hollow: true
 
 # Live config reload (changes require restart)
 live_config_reload: true
 
 working_directory: None
-
-
