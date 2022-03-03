@@ -29,14 +29,14 @@ static const int horizpadtabo       = 15;
 static const int scalepreview       = 4;
 static       int tag_preview        = 0;        /* 1 means enable, 0 is off */
 
-static const char *fonts[]          = { "FiraCode Nerd Font:style:medium:size=11",
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:style:medium:size=10",
                                         "Material Design Icons-Regular:size=10",
                                       };
-static const char dmenufont[]       = "FiraCode Nerd Font:style:medium:size=10";
+static const char dmenufont[]       = "JetBrainsMono Nerd Font:style:regular:size=10";
 static const int colorfultag        = 1;  /* 0 means use SchemeSel for selected non vacant tag */
 
 // theme
-#include "themes/gruvchad.h"
+#include "themes/catppuccin.h"
 
 static const char *colors[][3]      = {
     /*               fg         bg         border   */
@@ -125,12 +125,14 @@ static const char *termcmd[]  = {  "alacritty", NULL }; // change this to your t
 static const char *rofi[] = {"rofi", "-show", "drun", NULL };
 static const char *xi[] = {"xbacklight", "-inc", "7", NULL};
 static const char *xd[] = {"xbacklight", "-dec", "7", NULL};
+// take screenshot
+static const char *screengrab[] = {"screengrab", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_c,      spawn,          {.v = rofi } },
     { MODKEY,                       XK_Return, spawn,          {.v = termcmd }},  
-
+    { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = screengrab }},
     {MODKEY | ControlMask, XK_u, spawn, SHCMD("maim | xclip -selection clipboard -t image/png")},
     {MODKEY, XK_u, spawn,   SHCMD("maim --select | xclip -selection clipboard -t image/png")},
     {0, XF86MonBrightnessDown, spawn, {.v = xd}},
